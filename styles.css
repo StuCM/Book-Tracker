@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&family=Roboto+Serif&family=Roboto:wght@400;500&display=swap');
+
+/*Custom Reset */
+
+*, *:before, *:after {
+    box-sizing: inherit;
+  }
+  
+  body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+  }
+  
+  ol, ul {
+    list-style: none;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  input, input:focus-visible {
+    border:none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    outline: none;
+  }
+
+  button {
+    all: unset;
+  }
+
+  /* Styling */
+  *, [class] {
+    box-sizing: border-box;
+  }
+
+  html {
+    font-size: 16px;
+    font-family: Roboto, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+body {
+    background: #EFECE6;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    justify-items: center;
+    height: 100%;
+}
+
+header {
+    background: #548687;
+    border-bottom: solid 5px #F18F01;
+    height: 7rem;
+    display: flex;
+    align-items: center;
+    padding-left: 2rem;
+}
+
+header h1 {
+    font-family: "Roboto Serif";
+    font-size: 3rem;
+    margin-left: 1rem;
+    color: white;
+}
+
+header>h1:first-of-type {
+    font-family: "Roboto Medium";
+    color: #F18F01;
+}
+
+.add {
+    height: 150px;
+    width: 116px;
+    margin: 4rem 0;
+    border: solid 0.5rem #C8C2B7;
+    border-radius: 1rem;
+    text-align: center;
+    transition: ease all 0.2s;
+}
+
+.add i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.2rem;
+    color: #C8C2B7;
+    height: calc(100% + 1rem);
+    width: calc(100% + 1rem);
+    transform: translate(-0.5rem, -0.5rem);
+    transition: ease all 0.2s;
+}
+
+.add:hover, .add i:hover {
+    border-color: #938E86;
+    color: #938E86;
+}
+
+.add:active {
+    background-color: #C8C2B7;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.stats {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.stats-text {
+    display: flex;
+    font-size: 1.4rem;
+    color: #938E86;
+    margin-top: 0.8rem;
+}
+
+section {
+    position: relative;
+    width: 100%;
+}
+
+.bookshelf {
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+
+.hidden {
+    overflow: hidden;
+    height: 0;
+    width: 0;
+}
+
+.add-book {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 350px;
+    width: 500px;
+    margin: 4rem;
+    background-color: white;
+    border-radius: 0.8rem;
+    transition: height 0.75s ease, width 0.7s ease;
+}
