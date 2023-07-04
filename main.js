@@ -28,10 +28,12 @@ async function addBookToLibrary() {
         )
     console.log(bookData)
     getBookCover(bookData.cover_i)
-    let alreadyAdded = myLibrary.forEach(entry => entry.name === book.name);
+    let alreadyAdded = myLibrary.some(entry => entry.title === newBook.title && entry.author === newBook.author);
+    console.log(alreadyAdded)
     if(!alreadyAdded) {
         myLibrary.push(newBook);
         console.log(myLibrary)
+        this.toggleBookModal();
     }
     else{ console.log("This book has already been added") };
 }
@@ -47,16 +49,15 @@ async function getBookCover(id){
 async function getBookData(title, author) {
     title = title.replace(" ", "+")
     author = author.replace(" ", "+")
-    let response = await fetch("https://openlibrary.org/search.json?title=" + title + "&author=" + author);
+    let response = await fetch("https://openlibrary.org/search.json?title=" + title + "&author=" + author + "&limit=5&offset=0");
     let bookData = await response.json();
     let firstBook = bookData.docs[0]
 
     return firstBook
 }
 
-function addBookModal() {
+function toggleBookModal() {
     const modal = document.getElementById("addBook");
-    console.log("model", modal)
-    modal.classList.remove("hidden");
-    modal.classList.add("add-book");
+        modal.classList.toggle("hidden");
+        modal.classList.toggle("add-book");
 }
