@@ -41,14 +41,23 @@
                 <div class="image-container">
                     <img src="" alt="book cover">
                 </div>
-                <div id="book-info">
-                    <h2>Title: </h2>
-                    <h2>Author: </h2>
-                    <h2>Rating: </h2>
-                </div>
+                <form>
+                    <div class="input-container">
+                        <label for="title">Title</label>
+                        <input type="text" name="title" id="title" required>
+                    </div>
+                    <div class="input-container">
+                        <label for="author">Author</label>
+                        <input type="text" name="author" id="author" required>
+                    </div>
+                    <div class="input-container">
+                        <label for="rating">Rating</label>
+                        <input type="range" name="rating" id="rating" required>
+                    </div>
+                </form>
                 <div class="btns">
-                    <button>Add</button>
-                    <button>Cancel</button>
+                    <button class="btn btn-secondary">Cancel</button>
+                    <button class="btn btn-primary">Add</button>
                 </div>
             </div>
         </section> 
