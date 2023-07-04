@@ -27,7 +27,7 @@ async function addBookToLibrary() {
         false
         )
     console.log(bookData)
-    getBookCover(bookData.isbn[bookData.isbn.length -1])
+    getBookCover(bookData.cover_i)
     let alreadyAdded = myLibrary.forEach(entry => entry.name === book.name);
     if(!alreadyAdded) {
         myLibrary.push(newBook);
@@ -36,9 +36,11 @@ async function addBookToLibrary() {
     else{ console.log("This book has already been added") };
 }
 
-async function getBookCover(ISBN){
-    let response = await fetch("https://covers.openlibrary.org/b/isbn/" + ISBN + "-M.jpg");
-    document.getElementById("cover").src = response.url;
+async function getBookCover(id){
+    let response = await fetch("https://covers.openlibrary.org/b/id/" + id + "-M.jpg");
+    let cover = document.getElementById("cover")
+    cover.setAttribute("src", response.url);
+
     console.log(response, response.url)
 }
 
