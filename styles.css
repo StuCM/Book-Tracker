@@ -151,7 +151,7 @@ section {
     height: 350px;
     width: 500px;
     margin: 4rem;
-    background-color: white;
+    background-color: #FAFAFA;
     border-radius: 0.8rem;
     transition: height 0.75s ease, width 0.7s ease;
     display: grid;
@@ -169,27 +169,30 @@ section {
 
 .input-container {
     padding: 0 1rem;
-    margin-top: 1.2rem;
+    margin-top: 1rem;
 }
 
 .input-container label, .input-container input {
     display: block;
-    font-size: 1.1rem;
+    font-family: "Lato";
     margin-bottom: 0.3rem;
     width: 100%;
     max-width: 100%;
 }
 
-.input-container label {
-    margin-left: 0.4rem;
+.input-container label, .rating-text {
+    margin-left: 0.6rem;
+    color: #756F60;
+    font-size: 0.9rem;
 }
 
 .input-container input {
-    background-color: grey;
+    background-color: #F0EDE7;
     border-radius: 1rem;
-    height: 2rem;
-    margin-top: 0.5rem;
+    height: 2.5rem;
+    margin-top: 0.2rem;
     padding: 0 1rem;
+    font-size: 1rem;
 }
 
 .btns {
@@ -217,4 +220,37 @@ section {
 .btn-secondary {
     background-color: #C8C2B7;
     margin-right: 1.2rem;
+}
+
+.star-rating {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: row-reverse;
+    margin: 1rem 0rem;  
+}
+
+.star-rating input {
+    display: none;
+}
+
+.star-rating input:checked ~ label::before {
+    font-weight: 900;
+}
+
+.star-rating > label {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    font-family: "Font Awesome 5 free";
+    font-size: 20px;
+    color: orange;
+    margin-left: 0.4rem
+}
+
+.star-rating label::before {
+    content: "\f005";
+    position: absolute;
+    top: 0px;
+    line-height: 16px;
 }
