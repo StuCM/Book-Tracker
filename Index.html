@@ -50,24 +50,34 @@
                         <label for="author">Author</label>
                         <input type="text" name="author" id="author" required>
                     </div>
-                    <div class="input-container">
-                        <p class="rating-text">Rating</p>
-                        <div class="star-rating">
-                            <input type="radio" name="stars" id="star-a" value="5"/>
-                            <label for="star-a"></label>
-    
-                            <input type="radio" name="stars" id="star-b" value="4"/>
-                            <label for="star-b" class="fa-regular fa-star"></label>
-    
-                            <input type="radio" checked="true" name="stars" id="star-c" value="3"/>
-                            <label for="star-c"></label>
-    
-                            <input type="radio" name="stars" id="star-d" value="2"/>
-                            <label for="star-d"></label>
-    
-                            <input type="radio" name="stars" id="star-e" value="1"/>
-                            <label for="star-e"></label>
+                    <div class="ratings-toggle">
+                        <div class="input-container">
+                            <p class="rating-text">Rating</p>
+                            <div class="star-rating">
+                                <input type="radio" name="stars" id="star-a" value="5"/>
+                                <label for="star-a"></label>
+        
+                                <input type="radio" name="stars" id="star-b" value="4"/>
+                                <label for="star-b" class="fa-regular fa-star"></label>
+        
+                                <input type="radio" checked="true" name="stars" id="star-c" value="3"/>
+                                <label for="star-c"></label>
+        
+                                <input type="radio" name="stars" id="star-d" value="2"/>
+                                <label for="star-d"></label>
+        
+                                <input type="radio" name="stars" id="star-e" value="1"/>
+                                <label for="star-e"></label>
+                            </div>                    
                         </div>
+                        <div class="input-container">
+                            <p class="rating-text">Read</p>
+                            <label class="toggle">
+                                <input type="checkbox">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        
                     </div>
                     <div class="btns">
                         <button class="btn btn-secondary">Cancel</button>
