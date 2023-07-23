@@ -58,6 +58,7 @@ async function getBookData(title, author) {
 
 function toggleBookModal() {
     const modal = document.getElementById("addBook");
-        modal.classList.toggle("hidden");
-        modal.classList.toggle("add-book");
+    modal.classList.toggle("active");
+    const form = document.getElementById("formInput")
+    form.classList.toggle("active")
 }

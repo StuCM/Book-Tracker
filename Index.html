@@ -34,14 +34,8 @@
             </div>
         </div>
         <section>
-            <div class="bookshelf">
-            
-            </div>
-            <div id="addBook" class="hidden">
-                <div class="image-container">
-                    <img id="cover" src="assets/annihilation-book-cover.jpg" link="" alt="book cover">
-                </div>
-                <form>
+            <div id="addBook" class="add-book">
+                <form id="formInput">
                     <div class="input-container">
                         <label for="title">Title</label>
                         <input type="text" name="title" id="title" required>
@@ -80,10 +74,42 @@
                         
                     </div>
                     <div class="btns">
-                        <button class="btn btn-secondary">Cancel</button>
+                        <button class="btn btn-secondary" onclick="event.preventDefault(); toggleBookModal()">Cancel</button>
                         <button type="submit" class="btn btn-primary" onclick="event.preventDefault(); addBookToLibrary()">Add</button>
                     </div>
                 </form>
+            </div>
+            <div class="bookshelf">
+                <div class="image-container">
+                    <img id="cover" src="assets/annihilation-book-cover.jpg" link="" alt="book cover">
+                </div>
+                <div class="image-container">
+                    <img id="cover" src="assets/annihilation-book-cover.jpg" link="" alt="book cover">
+                </div>
+                <div class="image-container">
+                    <img id="cover" src="assets/annihilation-book-cover.jpg" link="" alt="book cover">
+                </div>
+                <div class="image-container">
+                    <img id="cover" src="assets/annihilation-book-cover.jpg" link="" alt="book cover">
+                </div>
+                <div class="image-container">
+                    <img id="cover" src="assets/annihilation-book-cover.jpg" link="" alt="book cover">
+                </div>
+                <div class="image-container">
+                    <img id="cover" src="assets/annihilation-book-cover.jpg" link="" alt="book cover">
+                </div>
+                <div class="image-container">
+                    <img id="cover" src="assets/annihilation-book-cover.jpg" link="" alt="book cover">
+                </div>
+                <div class="image-container">
+                    <img id="cover" src="assets/annihilation-book-cover.jpg" link="" alt="book cover">
+                </div>
+                <div class="image-container">
+                    <img id="cover" src="assets/annihilation-book-cover.jpg" link="" alt="book cover">
+                </div>
+                <div class="image-container">
+                    <img id="cover" src="assets/annihilation-book-cover.jpg" link="" alt="book cover">
+                </div>
             </div>
         </section> 
 
