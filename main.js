@@ -11,12 +11,16 @@ function Book(title, author, published, pages, rating, read, cover) {
 }
 
 async function addBookToLibrary() {
+    //get input data
     const title = document.getElementById("title");
     const author = document.getElementById("author");
     let rating = document.getElementsByName('stars');
     for(let star of rating) {
         if(star.checked) rating = star.value;
     }
+    let read = document.getElementById("read")
+
+    //query API
     let bookData = await getBookData(title.value, author.value);
     let bookCover = await getBookCover(bookData.cover_i)
     let newBook = new Book(
@@ -25,10 +29,11 @@ async function addBookToLibrary() {
         bookData.publish_date[0], 
         bookData.number_of_pages_median,
         rating,
-        false,
+        read,
         bookCover
         )
-    console.log("new book", newBook)    
+
+    //add to library
     let alreadyAdded = myLibrary.some(entry => entry.title === newBook.title && entry.author === newBook.author);
     console.log(alreadyAdded)
     if(!alreadyAdded) {
@@ -58,6 +63,8 @@ function addBookToGrid(index) {
     bookshelf.appendChild(clonedTemplate);
 }
 
+//Book Info Api
+
 async function getBookCover(id){
     let response = await fetch("https://covers.openlibrary.org/b/id/" + id + "-M.jpg");
     return response.url;
@@ -72,6 +79,8 @@ async function getBookData(title, author) {
 
     return firstBook
 }
+
+//Page Control
 
 function toggleBookModal() {
     const modal = document.getElementById("addBook");
