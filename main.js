@@ -78,6 +78,39 @@ function addBookToGrid(index) {
 
     const bookshelf = document.getElementById("bookshelf");
     bookshelf.appendChild(clonedTemplate);
+
+    clonedTemplate.addEventListener("click", (event) => {
+        positionInfo(event.currentTarget);
+        const showInfoModal = document.getElementById("bookInfo");
+        showInfoModal.classList.add("active");
+        showBookInfo(index);
+    })
+}
+
+function positionInfo(event) {
+    const position = event.getBoundingClientRect();
+    console.log(position)
+    const adjustedTop = position.y - 24;
+    const adjustedLeft = position.x - 24;
+    const element = document.getElementById("bookInfo");
+    element.style.top = adjustedTop + "px";
+    element.style.left = adjustedLeft + "px"
+}
+
+function showBookInfo(index){
+    const book = myLibrary[index];
+    const cover = document.getElementById("coverInfo");
+    const title = document.getElementById("titleInfo");
+    const author = document.getElementById("authorInfo");
+    const published = document.getElementById("publishedInfo");
+    const pages = document.getElementById("pagesInfo");
+    console.log(book);
+    cover.src = book.cover;
+    cover.alt = book.title;
+    title.textContent = book.title;
+    author.textContent = book.author;
+    published.textContent = book.published;
+    pages.textContent = book.pages;
 }
 
 //Book Info Api
@@ -111,7 +144,8 @@ function toggleBookModal() {
     form.reset(); 
     const modal = document.getElementById("addBook");
     modal.classList.toggle("active");
-    form.classList.toggle("active")
+    modal.classList.remove("auto-height");
+    form.classList.toggle("active");
     const errors = document.querySelector(".errors");
     if(errors.classList.contains("active")) {
         errors.classList.toggle("active");

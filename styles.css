@@ -157,7 +157,7 @@ form.active {
     transition-delay: 500ms;
 }
 
-.add-book {
+.add-book, .book-info {
     height: 0;
     width: 0;
     margin: 4rem 1rem 0 0.25rem;
@@ -177,6 +177,18 @@ form.active {
 .auto-height.active {
     height: 355px !important; 
     transition: all 0.1s ease;
+}
+
+.book-info {
+    display: none;
+}
+
+.book-info.active {
+    display: flex;
+    position: absolute;
+    height: 320px;
+    width: 460px;
+    padding: 1.5rem;
 }
 
 .image-container { 
@@ -375,4 +387,15 @@ input:checked + .slider:before {
 -webkit-transform: translateX(16px);
 -ms-transform: translateX(16px);
 transform: translateX(16px);
+}
+
+.info-text {
+    font-family: 'Lato';
+    font-size: 1rem;
+}
+.info-text.h2 {
+    font-size: 1.4rem;
+}
+.info-text.h3 {
+    font-size: 1.2rem;
 }
