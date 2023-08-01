@@ -35,7 +35,6 @@ async function addBookToLibrary() {
 
     //add to library
     let alreadyAdded = myLibrary.some(entry => entry.title === newBook.title && entry.author === newBook.author);
-    console.log(alreadyAdded)
     if(!alreadyAdded) {
         myLibrary.push(newBook);
         let index = myLibrary.indexOf(newBook);
@@ -46,7 +45,13 @@ async function addBookToLibrary() {
         author.value = "";
         rating = 3;
     }
-    else{ console.log("This book has already been added") };
+    else { 
+        let errors = document.querySelector(".errors")
+        errors.textContent = "This book has already been added";
+        errors.classList.add("active");
+        let addBook = document.getElementById("addBook");
+        addBook.classList.add("auto-height");
+     };
 }
 
 function addBookToGrid(index) {
@@ -75,10 +80,12 @@ async function getBookData(title, author) {
     let query = "https://openlibrary.org/search.json?title=" + title;
     if(author) {
         author = author.replace(" ", "+")
-        query += author;
+        query += "&author=" + author;
     }
     query += "&limit=1&offset=0";
+    console.log(query)
     const response = await fetch(query);
+    console.log(response)
     let bookData = await response.json();
     let firstBook = bookData.docs[0]
 
