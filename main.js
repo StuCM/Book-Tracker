@@ -72,8 +72,13 @@ async function getBookCover(id){
 
 async function getBookData(title, author) {
     title = title.replace(" ", "+")
-    author = author.replace(" ", "+")
-    let response = await fetch("https://openlibrary.org/search.json?title=" + title + "&author=" + author + "&limit=5&offset=0");
+    let query = "https://openlibrary.org/search.json?title=" + title;
+    if(author) {
+        author = author.replace(" ", "+")
+        query += author;
+    }
+    query += "&limit=1&offset=0";
+    const response = await fetch(query);
     let bookData = await response.json();
     let firstBook = bookData.docs[0]
 

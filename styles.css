@@ -160,7 +160,7 @@ form.active {
 .add-book {
     height: 0;
     width: 0;
-    margin: 4rem 1rem 0 1.25rem;
+    margin: 4rem 1rem 0 0.25rem;
     padding-top: 0.1rem;
     background-color: #FAFAFA;
     border-radius: 0.8rem;
@@ -176,7 +176,7 @@ form.active {
 
 .image-container { 
     height: 215px;
-    width: 140px;
+    width: 150px;
     max-width: 160px;
     display: flex;
     justify-content: center;
@@ -185,7 +185,7 @@ form.active {
 }
 
 .image-container img {
-    height: 85%;
+    height: 100%;
     width: auto;
     border: solid 7px #C8C2B7;
     border-radius: 0.8rem;
