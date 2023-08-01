@@ -176,7 +176,7 @@ form.active {
 
 .auto-height.active {
     height: 355px !important; 
-    transition: height 0.75s ease, width 0.7s ease, margin-bottom 0.2s ease;
+    transition: all 0.1s ease;
 }
 
 .image-container { 

@@ -22,6 +22,10 @@ async function addBookToLibrary() {
 
     //query API
     let bookData = await getBookData(title.value, author.value);
+    if(!bookData){
+        showErrorMessage();
+        return;
+    }
     let bookCover = await getBookCover(bookData.cover_i)
     let newBook = new Book(
         bookData.title, 
@@ -52,6 +56,14 @@ async function addBookToLibrary() {
         let addBook = document.getElementById("addBook");
         addBook.classList.add("auto-height");
      };
+}
+
+function showErrorMessage() {
+    const errors = document.querySelector(".errors");
+    errors.textContent = "This book does not exist";
+    errors.classList.add("active");
+    const panel = document.getElementById("addBook");
+    panel.classList.add("auto-height");
 }
 
 function addBookToGrid(index) {
