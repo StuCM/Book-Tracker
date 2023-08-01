@@ -225,11 +225,13 @@ form.active {
 }
 
 .errors {
+    display: none;
     color: red;
     padding: 0;
 }
 
 .errors.active {
+    display: block;
     padding: 1rem 1.5rem 0 1.5rem;
 }
 

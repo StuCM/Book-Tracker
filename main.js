@@ -95,8 +95,13 @@ async function getBookData(title, author) {
 //Page Control
 
 function toggleBookModal() {
+    const form = document.getElementById("formInput")
+    form.reset(); 
     const modal = document.getElementById("addBook");
     modal.classList.toggle("active");
-    const form = document.getElementById("formInput")
     form.classList.toggle("active")
+    const errors = document.querySelector(".errors");
+    if(errors.classList.contains("active")) {
+        errors.classList.toggle("active");
+    }
 }
