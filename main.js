@@ -44,7 +44,7 @@ async function addBookToLibrary() {
         let index = myLibrary.indexOf(newBook);
         addBookToGrid(index);
         console.log(myLibrary)
-        this.toggleBookModal();
+        this.toggleAddModal();
         title.value = "";
         author.value = "";
         rating = 3;
@@ -70,21 +70,22 @@ function addBookToGrid(index) {
     const temp = document.getElementsByTagName('template')[0];
     const bookTemp = temp.content.querySelector('div');
     const clonedTemplate = document.importNode(bookTemp, true);
-    console.log(clonedTemplate)
-    const bookCoverTemp = clonedTemplate.querySelector('#cover');
+    clonedTemplate.querySelector('img').id = index + "-book";
+    clonedTemplate.addEventListener("click", () => {
+        toggleBookModal(index);
+    });
+
+    const coverImg = clonedTemplate.querySelector('img')
+    coverImg.id = index + "-cover";
     const book = myLibrary[index];
-    bookCoverTemp.src = book.cover;
-    bookCoverTemp.alt = book.title;
+
+    coverImg.src = book.cover;
+    coverImg.alt = book.title;
 
     const bookshelf = document.getElementById("bookshelf");
     bookshelf.appendChild(clonedTemplate);
 
-    clonedTemplate.addEventListener("click", (event) => {
-        positionInfo(event.currentTarget);
-        const showInfoModal = document.getElementById("bookInfo");
-        showInfoModal.classList.add("active");
-        showBookInfo(index);
-    })
+
 }
 
 function positionInfo(event) {
@@ -139,7 +140,7 @@ async function getBookData(title, author) {
 
 //Page Control
 
-function toggleBookModal() {
+function toggleAddModal() {
     const form = document.getElementById("formInput")
     form.reset(); 
     const modal = document.getElementById("addBook");
@@ -149,5 +150,16 @@ function toggleBookModal() {
     const errors = document.querySelector(".errors");
     if(errors.classList.contains("active")) {
         errors.classList.toggle("active");
+    }
+}
+
+function toggleBookModal(index) {
+    const bookModal = document.getElementById("modal");
+    bookModal.style.display = "block";
+    
+    window.onclick = (event) => {
+        if(event.target == bookModal) {
+            bookModal.style.display = "none";
+        }
     }
 }
