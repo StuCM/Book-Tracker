@@ -19,6 +19,7 @@
   img {
     max-width: 100%;
     height: auto;
+    border-radius: 0.8rem;
   }
 
   input, input:focus-visible {
@@ -189,13 +190,57 @@ form.active {
 
 .modal-book {
     height: 400px;
-    width: 500px;
+    width: 575px;
     position: fixed;
     background-color: white;
+    top: 10rem;
+    left: calc(100vw/3);
+    border-radius: 1.5rem;
+    display: flex;
+    align-items: center;
 }
 
 .book-container {
     position: relative;
+}
+
+.text-content {
+    height: 100%;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.text-container {
+    margin-bottom: 0.8rem;
+}
+
+.text-container h2 {
+    display: block;
+    font-family: "Lato";
+    margin-bottom: 0.3rem;
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0.4rem;
+    color: #756F60;
+    font-size: 1.2rem;
+}
+
+.text-container p {
+    font-family: "Lato";
+    font-size: 1.3rem;
+    color: #121212;
+    margin-left: 0.4rem;
+}
+
+.modal-image {
+    height: 330px;
+    width: 250px;
+    max-width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 
@@ -214,6 +259,10 @@ form.active {
     width: auto;
     border: solid 7px #C8C2B7;
     border-radius: 0.8rem;
+}
+
+.no-padding {
+    padding: 0 !important;
 }
 
 .input-container {

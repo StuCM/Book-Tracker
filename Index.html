@@ -81,7 +81,56 @@
             </div>
             <div id="bookshelf" class="bookshelf">
                 <div id="modal" class="modal">
-                    <div class="modal-book"></div>
+                    <div class="modal-book">
+                        <div class="modal-image">
+                            <img id="modalImg" src="" link="" alt="book cover">
+                        </div>
+                        <div class="text-content">
+                            <div class="text-container">
+                                <h2>Title</h2>
+                                <p id="modalTitle"></p>
+                            </div>
+                            <div class="text-container">
+                                <h2>Author</h2>
+                                <p id="modalAuthor"></p>
+                            </div>
+                            <div  class="text-container">
+                                <h2>Pages</h2>
+                                <p id="modalPages"></p>
+                            </div>
+                            <div class="text-container">
+                                <h2>Published</h2>
+                                <p id="modalPublish"></p>
+                            </div>
+                            <div class="ratings-toggle no-padding">
+                                <div class="input-container no-padding">
+                                    <p class="rating-text">Rating</p>
+                                    <div class="star-rating">
+                                        <input type="radio" name="stars" id="star-a" value="5"/>
+                                        <label for="star-a"></label>
+                
+                                        <input type="radio" name="stars" id="star-b" value="4"/>
+                                        <label for="star-b" class="fa-regular fa-star"></label>
+                
+                                        <input type="radio" checked="true" name="stars" id="star-c" value="3"/>
+                                        <label for="star-c"></label>
+                
+                                        <input type="radio" name="stars" id="star-d" value="2"/>
+                                        <label for="star-d"></label>
+                
+                                        <input type="radio" name="stars" id="star-e" value="1"/>
+                                        <label for="star-e"></label>
+                                    </div>                    
+                                </div>
+                                <div class="input-container">
+                                    <p class="rating-text">Read</p>
+                                    <label class="toggle">
+                                        <input id="read" type="checkbox">
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+                    </div>
                 </div>
             </div>
         </section> 

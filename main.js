@@ -154,8 +154,20 @@ function toggleAddModal() {
 }
 
 function toggleBookModal(index) {
+    const book = myLibrary[index];
     const bookModal = document.getElementById("modal");
+    const title =  document.getElementById("modalTitle");
+    const author = document.getElementById("modalAuthor");
+    const pages = document.getElementById("modalPages");
+    const published = document.getElementById("modalPublish");
+    const cover = document.getElementById("modalImg");
     bookModal.style.display = "block";
+
+    title.textContent = book.title;
+    author.textContent = book.author;
+    pages.textContent = book.pages;
+    published.textContent = book.published;
+    cover.src = book.cover;
     
     window.onclick = (event) => {
         if(event.target == bookModal) {
