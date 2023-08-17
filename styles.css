@@ -243,6 +243,32 @@ form.active {
     align-items: flex-start;
 }
 
+.delete {
+    display: flex;
+    align-items: center;
+    margin-left: 1.5rem;
+}
+
+.delete-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2.5rem;
+    width: 2.5rem;
+    color: white;
+    font-size: 1.2rem;
+    border-radius: 7px;
+    background: linear-gradient(145deg, #fd6767, #eb1616);
+}
+
+.delete-button:hover {
+    background: linear-gradient(145deg, #dd5a5a, #cf1414);
+}
+
+.delete-button:active {
+    background: linear-gradient(145deg, #ce5454, #b91313);
+}
+
 
 .image-container { 
     height: 215px;

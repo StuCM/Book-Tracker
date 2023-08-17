@@ -70,7 +70,7 @@ function addBookToGrid(index) {
     const temp = document.getElementsByTagName('template')[0];
     const bookTemp = temp.content.querySelector('div');
     const clonedTemplate = document.importNode(bookTemp, true);
-    clonedTemplate.querySelector('img').id = index + "-book";
+    clonedTemplate.querySelector('img').id = index;
     clonedTemplate.addEventListener("click", () => {
         toggleBookModal(index);
     });
@@ -168,10 +168,20 @@ function toggleBookModal(index) {
     pages.textContent = book.pages;
     published.textContent = book.published;
     cover.src = book.cover;
+
+    document.querySelector(".delete-button").addEventListener("click", () => deleteBook(index));
     
     window.onclick = (event) => {
         if(event.target == bookModal) {
             bookModal.style.display = "none";
         }
     }
+}
+
+function deleteBook(index) {
+    const gridBook = document.getElementById(index + "-cover").parentNode;
+    const bookModal = document.getElementById("modal");
+    gridBook.remove();
+    bookModal.style.display = "none";
+    myLibrary.splice(index, 1);
 }
