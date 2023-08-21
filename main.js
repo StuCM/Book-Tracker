@@ -18,7 +18,8 @@ async function addBookToLibrary() {
     for(let star of rating) {
         if(star.checked) rating = star.value;
     }
-    let read = document.getElementById("read")
+    let read = document.getElementById("read").checked
+    console.log(rating)
 
     //query API
     let bookData = await getBookData(title.value, author.value);
@@ -88,32 +89,6 @@ function addBookToGrid(index) {
 
 }
 
-function positionInfo(event) {
-    const position = event.getBoundingClientRect();
-    console.log(position)
-    const adjustedTop = position.y - 24;
-    const adjustedLeft = position.x - 24;
-    const element = document.getElementById("bookInfo");
-    element.style.top = adjustedTop + "px";
-    element.style.left = adjustedLeft + "px"
-}
-
-function showBookInfo(index){
-    const book = myLibrary[index];
-    const cover = document.getElementById("coverInfo");
-    const title = document.getElementById("titleInfo");
-    const author = document.getElementById("authorInfo");
-    const published = document.getElementById("publishedInfo");
-    const pages = document.getElementById("pagesInfo");
-    console.log(book);
-    cover.src = book.cover;
-    cover.alt = book.title;
-    title.textContent = book.title;
-    author.textContent = book.author;
-    published.textContent = book.published;
-    pages.textContent = book.pages;
-}
-
 //Book Info Api
 
 async function getBookCover(id){
@@ -161,6 +136,11 @@ function toggleBookModal(index) {
     const pages = document.getElementById("modalPages");
     const published = document.getElementById("modalPublish");
     const cover = document.getElementById("modalImg");
+    const read = document.getElementById("modalRead")
+    let rating = document.getElementsByName('modalStars');
+    for(let star of rating) {
+        if(star.value === book.rating) star.checked = true;
+    }
     bookModal.style.display = "block";
 
     title.textContent = book.title;
@@ -168,7 +148,10 @@ function toggleBookModal(index) {
     pages.textContent = book.pages;
     published.textContent = book.published;
     cover.src = book.cover;
-
+    read.checked = book.read;
+    
+    read.addEventListener("change", () => book.read = read.checked);
+    
     document.querySelector(".delete-button").addEventListener("click", () => deleteBook(index));
     
     window.onclick = (event) => {
