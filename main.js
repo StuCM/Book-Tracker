@@ -1,4 +1,6 @@
 let myLibrary = [];
+let totalBooks = 0;
+let booksRead = 0;
 
 function Book(title, author, published, pages, rating, read, cover) {
     this.title = title,
@@ -42,6 +44,10 @@ async function addBookToLibrary() {
     let alreadyAdded = myLibrary.some(entry => entry.title === newBook.title && entry.author === newBook.author);
     if(!alreadyAdded) {
         myLibrary.push(newBook);
+        totalBooks++
+        console.log(this.totalBooks)
+        if(newBook.read) booksRead++;
+        this.updateTotalBooks();
         let index = myLibrary.indexOf(newBook);
         addBookToGrid(index);
         console.log(myLibrary)
@@ -57,6 +63,17 @@ async function addBookToLibrary() {
         let addBook = document.getElementById("addBook");
         addBook.classList.add("auto-height");
      };
+}
+
+function updateTotalBooks() {
+    const total = document.querySelector("#total");
+    const read = document.querySelector("#booksRead");
+    const unread = document.querySelector("#unread");
+
+    console.log(this.totalBooks, this.booksRead)
+    total.textContent = totalBooks;
+    read.textContent = booksRead;
+    unread.textContent = totalBooks- booksRead;
 }
 
 function showErrorMessage() {
